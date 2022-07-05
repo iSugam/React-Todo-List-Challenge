@@ -3,12 +3,24 @@ import TodoItems from "./TodoItems";
 
 const TodoList = () => {
   const [inputText, setInputText] = useState("");
-  const [listItems, setListItems] = useState([]);
+  const [listItems, setListItems] = useState([
+    {
+      id: 0,
+      value: "Todo Item One"
+    },
+    {
+      id: 1,
+      value: "Todo Item Two"
+    }
+  ]);
+
+// Change input value with state
   const handleChange = (e) => {
     let newValue = e.target.value;
     setInputText(newValue);
   };
 
+// Add an item to listItems
   const addItems = () => {
     if (inputText === "") return;
     setListItems([
@@ -21,11 +33,12 @@ const TodoList = () => {
     setInputText("");
   };
 
+  // Delete or Remove an item from listItems
   const deleteItems = (id) => {
     setListItems(currentValue => {
-      currentValue.filter(item, index) {
-        return item !== currentValue
-      }
+      return currentValue.filter((item, index) => {
+        return index !== id;
+      })
     })
   };
 
@@ -42,9 +55,16 @@ const TodoList = () => {
 
         <div className="list-items">
           <ul>
-            {listItems.map((item) => {
-              return <TodoItems key={item.id} items={item.value} />;
-            })}
+            {
+              listItems.map(item => {
+                return <TodoItems 
+                        key={item.id} 
+                        items={item.value} 
+                        checkAndDelete={() => {
+                          deleteItems(item.id);
+                        }}/>;
+              })
+            }
           </ul>
         </div>
       </div>
