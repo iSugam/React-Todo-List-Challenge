@@ -1,6 +1,7 @@
 import React from "react";
 
 const TodoItems = ({ items, checkAndDelete }) => {
+
   return (
     <div>
       <li>
@@ -11,5 +12,6 @@ const TodoItems = ({ items, checkAndDelete }) => {
       </li>
     </div>
   );
+  
 };
 export default TodoItems;
