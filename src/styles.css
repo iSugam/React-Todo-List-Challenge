@@ -93,13 +93,13 @@ li .delete:hover {
 
 @media (max-width: 786px) {
   .container {
-    width: 50vw;
+    width: 75vw;
   }
 }
 
 @media (max-width: 556px) {
   .container {
-    width: 70vw;
+    width: 80vw;
   }
 }
 
