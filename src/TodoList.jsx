@@ -58,16 +58,14 @@ const TodoList = () => {
           <ul>
             {
               listItems.map(item => {
-                return <>
-                  <TodoItems 
-                          key={item.id} 
-                          items={item.value} 
+                const {id, value} = item;
+                return  <TodoItems 
+                          key={id} 
+                          items={value} 
                           checkAndDelete={() => {
-                            deleteItems(item.id);
+                            deleteItems(id);
                           }}
                       />;
-                </>
-               
               })
             }
           </ul>
