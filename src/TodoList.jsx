@@ -35,6 +35,7 @@ const TodoList = () => {
 
   // Delete or Remove an item from listItems
   const deleteItems = (id) => {
+
     setListItems(currentValue => {
       return currentValue.filter((item, index) => {
         return index !== id;
@@ -57,12 +58,16 @@ const TodoList = () => {
           <ul>
             {
               listItems.map(item => {
-                return <TodoItems 
-                        key={item.id} 
-                        items={item.value} 
-                        checkAndDelete={() => {
-                          deleteItems(item.id);
-                        }}/>;
+                return <>
+                  <TodoItems 
+                          key={item.id} 
+                          items={item.value} 
+                          checkAndDelete={() => {
+                            deleteItems(item.id);
+                          }}
+                      />;
+                </>
+               
               })
             }
           </ul>
